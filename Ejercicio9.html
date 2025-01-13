@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio9</title>
+</head>
+
+<body>
+    <!-- Cuando el usuario pase el ratón por encima de un item de lista, debe cambiar de color. -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <input type="text" id="miInput">
+    <button>Añadir item a la lista</button>
+    <ul></ul>
+
+    <script>
+        $("button").on("click", function () {
+            var textoInput = $("#miInput").val();
+            if (textoInput.trim() !== "") {
+                $("ul").append(`<li>${textoInput} <button class="delete-btn">Borrar</button></li>`);
+                $("#miInput").val(""); //limpio el buscador de texto
+            };
+            //elimino item de la lista
+            $(document).on("click", ".delete-btn", function () {
+                $(this).parent().remove();
+            });
+            //cambiar color mouseover
+            $(document).on("mouseover","li", function () {
+                var colorRandom = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+                $(this).css("background-color", colorRandom);
+            });
+            //eliminar color mouseleave
+            $(document).on("mouseleave","li",function(){
+                $(this).css("background-color","");
+            });
+        });
+    </script>
+</body>
+
+</html>

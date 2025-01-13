@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio7</title>
+</head>
+
+<body>
+    <!-- Crea una imagen que, cuando se haga clic sobre ella, cambie su fuente src por otra imagen de tu elección. -->
+
+    <img src="img/Viernes de feria Local.jpeg" style="max-width: 550px;" alt="Foto1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+
+    </script>
+    <script>
+        $(function () {
+            $("img").on("click", function () {
+                $(this).attr("src", "img/WIN_20210608_17_02_27_Pro.jpg");
+            })
+        })
+    </script>
+</body>
+
+</html>

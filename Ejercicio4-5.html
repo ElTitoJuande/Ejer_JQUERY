@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio4</title>
+</head>
+
+<body>
+    <!-- EJER4:Crea una lista vacía y un campo de texto donde el usuario pueda escribir. Al hacer clic en un botón, el contenido del campo de texto debe añadirse como un nuevo ítem en la lista. -->
+
+    <!-- EJER5: Añadir una funcionalidad a los elementos de la lista, de modo que se puedan eliminar cuando se haga clic sobre ellos. -->
+
+    <input type="text" id="miInput">
+    <button>Añadir a la lista</button>
+    <ul></ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $("button").click(() => {
+                var textoInput = $("#miInput").val();
+                if (textoInput.trim() !== "") {
+                    $("ul").append(`<li>${textoInput} <button class="delete-btn">Borrar</button></li>`);
+                    $("#miInput").val("");
+                };
+
+                $(document).on("click", ".delete-btn", function () {
+                    $(this).parent().remove();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

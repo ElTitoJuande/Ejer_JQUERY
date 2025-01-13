@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio10</title>
+</head>
+
+<body>
+    <!-- Crea una lista con ítems numerados y permítele al usuario reordenarlos arrastrando -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <h1>Lista ordenada y reordena arrastrando</h1>
+    <input type="text" id="miInput">
+    <button>Añadir a la lista</button>
+    <ol id="lista_ordenada"></ol>
+
+    <script>
+        $(function () {
+            $("button").on("click", function () {
+                var miTexto = $("#miInput").val();
+                if (miTexto.trim() !== "") {
+                    $("ol").append(`<li>${miTexto}<button class="borrar_btn">Borrar item</button></li>`);
+                    $("#miInput").val("");//limpio input
+                };
+                //Elimino item 
+                $(document).on("click", ".borrar_btn", function () {
+                    $(this).parent().remove();
+                });
+
+                //Magia negra
+                $("#lista_ordenada").sortable();
+            });
+        });
+    </script>
+</body>
+
+</html>

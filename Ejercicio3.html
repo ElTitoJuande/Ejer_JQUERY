@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio3</title>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <p>Contador: <span>0</span></p>
+    <button id="btn1">Aumentar contador</button>
+    <button id="btn2">Reducir contador</button>
+    <!-- Crea un contador que aumente cada vez que se haga clic en un botón. -->
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+                var contador = $("span").text();
+                contador++;
+                $("span").text(contador);
+            });
+            $("#btn2").click(function () {
+                var contador = $("span").text();
+                contador--;
+                $("span").text(contador);
+            });
+        });
+    </script>
+</body>
+
+</html>

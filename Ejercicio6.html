@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio6</title>
+</head>
+
+<body>
+    <!-- Muestra un elemento con un texto y, al pasar el ratón sobre él, cambia su contenido. -->
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum debitis distinctio ea placeat ut, assumenda dolore
+        reprehenderit facere nobis magnam.</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var p = $("p").text();
+            $("p").on("mouseover",function(){
+                $(this).text("Juan de dios");
+            });
+            $("p").on("mouseleave",function(){
+                $(this).text(p);
+            });
+        });
+    </script>
+</body>
+
+</html>

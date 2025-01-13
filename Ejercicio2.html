@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Cuando el usuario hace clic en un botón, cambia el color de fondo de la página a un color aleatorio. -->
+
+    <button>Cambia color</button>
+
+    <script>
+        $(function () {
+            $("button").click(() => {
+
+                var colorRandom = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+                $("body").css("background-color", colorRandom);
+            }
+            );$("button").click(() => {
+
+var colorRandom = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+$("body").css("background-color", colorRandom);
+}
+);
+        });
+    </script>
+</body>
+
+</html>

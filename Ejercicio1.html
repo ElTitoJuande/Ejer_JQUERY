@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eercicios JQUERY</title>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit facilis qui consequuntur earum placeat sit
+        tempore omnis voluptates necessitatibus blanditiis?</p>
+    <button>Toggle parrafo</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Crea una página con un párrafo oculto por defecto. Crea un botón que muestre y oculte ese párrafo cada vez que se haga clic sobre él. -->
+
+    <script>
+        $(function () {
+            $("button").click(function () {
+                $("p").toggle();
+            });
+        });
+    </script>
+</body>
+
+</html>
