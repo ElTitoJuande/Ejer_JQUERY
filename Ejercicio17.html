@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17</title>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #toggleModo {
+            width: 200px;
+            border: solid 1px black;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #botonModo {
+            width: 120px;
+            border: solid 1px black;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        /* Modo oscuro*/
+        /* body.modo-oscuro {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        body.modo-oscuro #toggleModo {
+            background-color: #333333;
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        body.modo-oscuro #botonModo {
+            background-color: #555555;
+            color: #ffffff;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- Implementa un interruptor para alternar entre un modo oscuro y un modo claro en la página. -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <div id="toggleModo">
+        <button id="botonModo">Cambiar modo</button>
+    </div>
+
+    <script>
+        $(function () {
+            let modoOscuro = false;
+
+            $("#botonModo").on("click", function () {
+                // $("body").toggleClass("modo-oscuro");
+                if (!modoOscuro) {
+                    $("body").css({
+                        "background-color": "#000000",
+                        "color": "#ffffff"
+                    });
+
+                    $("#toggleModo").css({
+                        "background-color": "#333333",
+                        "color": "#ffffff",
+                        "border-color": "#ffffff"
+                    });
+
+                    $("#botonModo").css({
+                        "background-color": "#333333",
+                        "color": "#ffffff",
+                        "border-color": "#ffffff"
+                    });
+                    modoOscuro = true;
+                } else {
+                    $("body").css({
+                        "background-color": "#ffffff",
+                        "color": "#000000"
+                    });
+
+                    $("#toggleModo").css({
+                        "background-color": "blue",
+                        "color": "#000000",
+                        "border-color": "#000000"
+                    });
+
+                    $("#botonModo").css({
+                        "background-color": "#f0f0f0",
+                        "color": "#000000",
+                        "border-color": "#000000"
+                    });
+                    modoOscuro = false;
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

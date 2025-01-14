@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 19</title>
+</head>
+
+<body>
+
+    <!-- Crea un botón que, cuando se haga clic, añada un nuevo párrafo a la página con un efecto de desvanecimiento. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <button id="btn1">Añadir párrafo</button>
+
+    <script>
+        $(function () {
+            $("#btn1").on("click", function () {
+                const parrafo = $("<p style='display: none;'>Esto es un parrafo</p>");
+                $("body").append(parrafo);
+                parrafo.fadeIn(500);
+            })
+        })
+    </script>
+
+</body>
+
+</html>

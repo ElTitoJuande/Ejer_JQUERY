@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 15</title>
+    <style>
+        #notificacion {
+            position: fixed;
+            background-color: rgb(0, 255, 4);
+            padding: 10px;
+            border: solid 1px black;
+            border-radius: 5px;
+        }
+    </style>
 </head>
+
 <body>
     <!-- Crea un sistema de notificación que se puede cerrar haciendo clic sobre un botón dentro de la notificación. -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <script>
+    <div id="notificacion">
+        <p>Esto es una notificacion</p>
+        <button>Cerrar</button>
+    </div>
 
+    <script>
+        $(function () {
+            $("#notificacion").show(500);
+            $("button").on("click", function () {
+                $("#notificacion").slideToggle(900);
+
+            })
+        })
     </script>
 </body>
+
 </html>

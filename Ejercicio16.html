@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 16</title>
+</head>
+
+<body>
+    <!-- Implementa una barra de búsqueda que permita al usuario filtrar elementos de una lista -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <input type="search" id="miInput" placeholder="Buscar elemento">
+    <button>Añadir elemento</button>
+    <ul>
+        <li>Manzana</li>
+        <li>Plátano</li>
+        <li>Naranja</li>
+        <li>Mandarina</li>
+        <li>Melón</li>
+    </ul>
+
+    <script>
+        $(function () {
+            //NO LO PIDE. Por si quieres añadir items a la lista, aunque tienes que escribir y luego borrar todo
+            $("button").on("click", function () {
+                var textoInput = $("#miInput").val();
+                if (textoInput.trim() !== "") {
+                    $("ul").append(`<li>${textoInput}</li>`);
+                    $("#miInput").val("");//limpiar buscador
+                };
+            });
+
+            $("#miInput").on("input", function () {
+                var filtro = $(this).val().toLowerCase();
+                $("li").each(function () {
+                    var textoElemento = $(this).text().toLowerCase();
+                    $(this).toggle(textoElemento.includes(filtro));
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
