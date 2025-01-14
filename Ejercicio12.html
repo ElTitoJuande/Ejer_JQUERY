@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <!-- Crea un menú con elementos que se desplegarán al pasar el mouse sobre ellos. -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <button id="menu">Menu</button>
+    <ul id="lista">
+        <li><a href="#">Item 2.1</a></li>
+        <li><a href="#">Item 2.2</a></li>
+        <li><a href="#">Item 2.3</a></li>
+    </ul>
+
+    <script>
+        $(function () {
+            $("ul").hide();
+            $("#menu").on("mouseover", function () {
+                $("ul").slideDown(500);
+
+            });
+            $("#menu").on("mouseleave", function () {
+                $("ul").slideUp(500);
+
+            });
+        });
+    </script>
+</body>
+
+</html>

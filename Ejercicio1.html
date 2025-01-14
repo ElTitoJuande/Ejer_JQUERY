@@ -18,8 +18,9 @@
 
     <script>
         $(function () {
+            $("p").hide();
             $("button").click(function () {
-                $("p").toggle();
+                $("p").toggle(500);
             });
         });
     </script>

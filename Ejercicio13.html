@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13</title>
+</head>
+
+<body>
+    <!-- Al hacer clic en un botón, mostrar la hora actual en el DOM. -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <h1>Haz click y muestra la hora</h1>
+    <div id="hora"></div>
+    <button id="mostrar_hora">Ver hora</button>
+
+    <script>
+        $(function () {
+            $("#mostrar_hora").on("click", function () {
+
+                const ahora = new Date();
+                const horaActual = ahora.toLocaleTimeString();
+
+                $("#hora").text("Hora actual " + horaActual);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio11</title>
+</head>
+
+<body>
+    <!-- Crea una estructura de paginación para navegar entre varios grupos de elementos. -->
+
+    <div class="container">
+        <div class="divs">Div 1</div>
+        <div class="divs">Div 2</div>
+        <div class="divs">Div 3</div>
+    </div>
+    <div class="botones">
+        <button id="btn1">Ver div1</button>
+        <button id="btn2">Ver div2</button>
+        <button id="btn3">Ver div3</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            var divs = $(".divs");
+            var indiceActual = 0;
+            divs.hide();
+            $(divs[indiceActual]).show();
+
+            $("#btn1").on("click", function () {
+                $(divs[indiceActual]).hide();
+                indiceActual = 0;
+                $(divs[indiceActual]).show();
+            });
+
+            $("#btn2").on("click", function () {
+                $(divs[indiceActual]).hide();
+                indiceActual = 1;
+                $(divs[indiceActual]).show();
+            });
+
+            $("#btn3").on("click", function () {
+                $(divs[indiceActual]).hide();
+                indiceActual = 2;
+                $(divs[indiceActual]).show();
+            });
+        });
+    </script>
+</body>
+
+</html>

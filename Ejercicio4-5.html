@@ -22,12 +22,12 @@
             $("button").click(() => {
                 var textoInput = $("#miInput").val();
                 if (textoInput.trim() !== "") {
-                    $("ul").append(`<li>${textoInput} <button class="delete-btn">Borrar</button></li>`);
+                    $("ul").append(`<li>${textoInput}</li>`);
                     $("#miInput").val("");
                 };
 
-                $(document).on("click", ".delete-btn", function () {
-                    $(this).parent().remove();
+                $("ul").on("click", "li", function () {
+                    $(this).remove();
                 });
             });
         });
