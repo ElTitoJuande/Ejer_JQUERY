@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio8_2</title>
+
+    <style>
+        body {
+            font-family: "system-ui";
+            min-height: 100vh;
+            align-content: center;
+        }
+
+        #carrusel {
+            max-width: 1000px;
+            height: 400px;
+            margin: auto;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .imagenes {
+            display: flex;
+            transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .prev,
+        .next {
+            padding: 10px;
+            margin: 10px;
+            position: absolute;
+            top: 50%;
+            /* Para centrarlo */
+            transform: translateY(-50%);
+            border: none;
+            background-color: rgb(67, 57, 133);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="carrusel">
+        <div class="imagenes">
+            <img src="https://picsum.photos/id/200/1000/400" alt="">
+            <img src="https://picsum.photos/id/201/1000/400" alt="">
+            <img src="https://picsum.photos/id/203/1000/400" alt="">
+        </div>
+
+        <div id="navegacion">
+            <button class="prev">
+                << /button>
+                    <button class="next">></button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            var indiceActual = 0;
+            var imagenes = $(".imagenes img");
+            var imgTotal = imagenes.length;
+            $(".prev").hide();
+
+            function mover() {
+                $(".imagenes").css("transform", `translatex(${-indiceActual * 1000}px)`);
+                if (indiceActual == imgTotal - 1) {
+                    $(".next").hide();
+                } else {
+                    $(".next").show();
+                }
+
+                if (indiceActual == 0) {
+                    $(".prev").hide();
+                } else {
+                    $(".prev").show();
+                }
+            }
+
+            $(".next").on("click", function () {
+                indiceActual++;
+                mover();
+            })
+            $(".prev").on("click", function () {
+                indiceActual--;
+                mover();
+            });
+            var miApi = "https://dummyjson.com/products";
+            $.ajax({
+                type: "GET",
+                url: miApi,
+                success: function (respuesta) {
+                    console.log(respuesta.products);
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>
