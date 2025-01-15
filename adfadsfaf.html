@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio8</title>
+    <style>
+        .container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        img {
+            max-width: 350px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .buttons {
+            text-align: center;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="img/Viernes de feria Local.jpeg" alt="foto1">
+        <img src="img/WIN_20210608_17_02_27_Pro.jpg" alt="foto2">
+        <img src="img/Viernes de feria Local.jpeg" alt="foto3">
+        <img src="img/WIN_20210608_17_02_27_Pro.jpg" alt="foto4">
+        <img src="img/Viernes de feria Local.jpeg" alt="foto5">
+        <img src="img/WIN_20210608_17_02_27_Pro.jpg" alt="foto6">
+    </div>
+    <div class="buttons">
+        <button id="btn1">Anterior</button>
+        <button id="btn2">Siguiente</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var imagenes = $("img");
+            var indiceActual = 0;
+            var animating = false;
+
+            // Ocultar todas las imágenes excepto la primera
+            imagenes.hide();
+            $(imagenes[indiceActual]).show();
+
+            $("#btn1").on("click", function () {
+                if (animating) return; // Prevenir múltiples clicks durante la animación
+                animating = true;
+
+                var siguienteIndice = (indiceActual - 1 + imagenes.length) % imagenes.length;
+
+                // Preparar la siguiente imagen
+                $(imagenes[siguienteIndice])
+                    .css('left', '-350px')
+                    .show();
+
+                // Animar la imagen actual hacia la derecha
+                $(imagenes[indiceActual]).animate({
+                    left: '350px'
+                }, 500);
+
+                // Animar la siguiente imagen hacia el centro
+                $(imagenes[siguienteIndice]).animate({
+                    left: '0'
+                }, 500, function () {
+                    $(imagenes[indiceActual]).hide();
+                    indiceActual = siguienteIndice;
+                    animating = false;
+                });
+            });
+
+            $("#btn2").on("click", function () {
+                if (animating) return;
+                animating = true;
+
+                var siguienteIndice = (indiceActual + 1) % imagenes.length;
+
+                // Preparar la siguiente imagen
+                $(imagenes[siguienteIndice])
+                    .css('left', '350px')
+                    .show();
+
+                // Animar la imagen actual hacia la izquierda
+                $(imagenes[indiceActual]).animate({
+                    left: '-350px'
+                }, 500);
+
+                // Animar la siguiente imagen hacia el centro
+                $(imagenes[siguienteIndice]).animate({
+                    left: '0'
+                }, 500, function () {
+                    $(imagenes[indiceActual]).hide();
+                    indiceActual = siguienteIndice;
+                    animating = false;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
