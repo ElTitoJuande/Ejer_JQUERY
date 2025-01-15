@@ -59,7 +59,7 @@
 
         <div id="navegacion">
             <button class="prev">
-                << /button>
+                <</button>
                     <button class="next">></button>
         </div>
     </div>
@@ -75,6 +75,7 @@
 
             function mover() {
                 $(".imagenes").css("transform", `translatex(${-indiceActual * 1000}px)`);
+                
                 if (indiceActual == imgTotal - 1) {
                     $(".next").hide();
                 } else {

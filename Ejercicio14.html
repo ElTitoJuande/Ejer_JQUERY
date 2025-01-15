@@ -1,16 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 14</title>
+    <style>
+        .principal {
+            width: 100px;
+            height: 10px;
+            border: solid 1px black;
+            overflow: hidden;
+        }
+
+        .secundario {
+            width: 0;
+            height: 10px;
+            background-color: #00ff08;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        /* .terciario {
+            width: 0;
+            height: 5px;
+            background-color: #ff0000;
+            text-align: center;
+            line-height: 30px;
+        } */
+    </style>
 </head>
+
 <body>
     <!-- Crea una barra de progreso que aumente el valor de su progreso al hacer clic en un botón. -->
+
+    <div class="principal">
+        <div class="secundario"></div>
+        <!-- <div class="terciario"></div> -->
+    </div>
+
+    <p>0%</p>
+    <button id="btn1">Carga verde</button>
+    <!-- <button id="btn2">Carga rojo</button> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
-    <script></script>
+    <script>
+        $(function () {
+            var ancho = 0;
+            $("#btn1").on("click", function () {
+                const valor = 10;
+                ancho += valor;
+                if (ancho >= 100) {
+                    $("p").text("100%");
+                } else {
+                    $("p").text(ancho + "%");
+                }
+                $(".secundario").css("width", ancho);
+            });
+            // $("#btn2").on("click", function () {
+            //     const valor = 10;
+            //     ancho += valor;
+            //     if (ancho >= 100) {
+            //         $("p").text("100%");
+            //     } else {
+            //         $("p").text(ancho + "%");
+            //     }
+            //     $(".terciario").css("width", ancho);
+            // });
+        });
+    </script>
 </body>
+
 </html>

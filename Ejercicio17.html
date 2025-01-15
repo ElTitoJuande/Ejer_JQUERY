@@ -35,7 +35,7 @@
         }
 
         /* Modo oscuro*/
-        /* body.modo-oscuro {
+        body.modo-oscuro {
             background-color: #000000;
             color: #ffffff;
         }
@@ -49,7 +49,7 @@
         body.modo-oscuro #botonModo {
             background-color: #555555;
             color: #ffffff;
-        } */
+        }
     </style>
 </head>
 
@@ -67,44 +67,44 @@
             let modoOscuro = false;
 
             $("#botonModo").on("click", function () {
-                // $("body").toggleClass("modo-oscuro");
-                if (!modoOscuro) {
-                    $("body").css({
-                        "background-color": "#000000",
-                        "color": "#ffffff"
-                    });
+                $("body").toggleClass("modo-oscuro");
+            //     if (!modoOscuro) {
+            //         $("body").css({
+            //             "background-color": "#000000",
+            //             "color": "#ffffff"
+            //         });
 
-                    $("#toggleModo").css({
-                        "background-color": "#333333",
-                        "color": "#ffffff",
-                        "border-color": "#ffffff"
-                    });
+            //         $("#toggleModo").css({
+            //             "background-color": "#333333",
+            //             "color": "#ffffff",
+            //             "border-color": "#ffffff"
+            //         });
 
-                    $("#botonModo").css({
-                        "background-color": "#333333",
-                        "color": "#ffffff",
-                        "border-color": "#ffffff"
-                    });
-                    modoOscuro = true;
-                } else {
-                    $("body").css({
-                        "background-color": "#ffffff",
-                        "color": "#000000"
-                    });
+            //         $("#botonModo").css({
+            //             "background-color": "#333333",
+            //             "color": "#ffffff",
+            //             "border-color": "#ffffff"
+            //         });
+            //         modoOscuro = true;
+            //     } else {
+            //         $("body").css({
+            //             "background-color": "#ffffff",
+            //             "color": "#000000"
+            //         });
 
-                    $("#toggleModo").css({
-                        "background-color": "blue",
-                        "color": "#000000",
-                        "border-color": "#000000"
-                    });
+            //         $("#toggleModo").css({
+            //             "background-color": "blue",
+            //             "color": "#000000",
+            //             "border-color": "#000000"
+            //         });
 
-                    $("#botonModo").css({
-                        "background-color": "#f0f0f0",
-                        "color": "#000000",
-                        "border-color": "#000000"
-                    });
-                    modoOscuro = false;
-                }
+            //         $("#botonModo").css({
+            //             "background-color": "#f0f0f0",
+            //             "color": "#000000",
+            //             "border-color": "#000000"
+            //         });
+            //         modoOscuro = false;
+            //     }
             })
         });
     </script>
